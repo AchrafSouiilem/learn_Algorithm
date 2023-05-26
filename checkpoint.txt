@@ -1,35 +1,30 @@
-//METHOD_1 :
-
-count := 0;
-FOR count FROM 1 TO 1 STEP 1 DO
-    write("G", "O");
-END_FOR
-
-FOR count FROM 1 TO 1 STEP 1 DO
-    write("M", "Y");
-END_FOR
-
-FOR count FROM 1 TO 1 STEP 1 DO
-    write("C", "O", "D", "E",".");
-END_FOR
-//write GO MY CODE.
-
-//METHOD_2 :
-
-count := 0 ;
-FOR count FROM 1 TO 8 STEP 1  DO
-    count := count + 1 ;
-SWITCH (count) DO
-    case 0 : write("G");
-    case 1 : write("O");
-    case 2 : write("M");
-    case 3 : write("Y");
-    case 4 : write("C");
-    case 5 : write("O");
-    case 6 : write("D");
-    case 7 : write("E");
-    case 8 : write("."); BREAK
-    default : "Invalid count value" ;
-END_SWITCH
-END_FOR
-// write GOMYCODE.
+ALGORITHM counter
+VAR
+    X,Y,Z : INTEGER;
+    "GO MY CODE." : STRING;
+    nb_CHAR : INTEGER :=0;
+    nb_word : INTEGER :=0;
+    nb_vowels : INTEGER :=0;
+BEGIN
+    //calculate the number of characters. 
+    X:= 0;
+    WHILE (X < 10) DO
+        X := X + 1;
+        nb_CHAR := X + 1;
+    END_WHILE
+    write("Number of characters are:", nb_CHAR);
+    //calculate the number of words.
+    Y := 0;
+    WHILE (Y < 2) DO
+        Y := Y + 1;
+        nb_word := Y + 1;
+    END_WHILE
+    write("Number of words are:", nb_word);
+    Z := 0;
+    //calculate the number of vowels.
+    WHILE (Z < 3) DO
+        Z := Z + 1;
+        nb_vowels := Z + 1;
+    END_WHILE
+    write("Number of vowels are:", nb_vowels);
+END
