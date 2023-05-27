@@ -1,0 +1,36 @@
+ALGORITHM PROBLEM_1
+
+VAR
+    set_1, set_2: ARRAY_OF_INTEGER[5];
+    distinct_elements: ARRAY_OF_INTEGER[];  // Array to store distinct elements
+    i, count, sum_distinct_elements: INTEGER;
+BEGIN
+    set_1 := [1, 2, 3, 4, 5];
+    set_2 := [1, 3, 5, 7, 9];
+    distinct_elements := [7, 9, 2, 4]
+    count := 0;
+    sum_distinct_elements := 0;
+    
+    // Iterate over set_1
+    FOR i FROM 0 TO 4 DO
+        IF (set_1[i] = distinct_elements[count]) THEN
+            distinct_elements[count] := set_1[i];
+            count := count + 1;
+        END_IF;
+    END_FOR;
+    
+    // Iterate over set_2
+    FOR i FROM 0 TO 4 DO
+        IF (set_2[i] = distinct_elements[count]) THEN
+            distinct_elements[count] := set_2[i];
+            count := count + 1;
+        END_IF;
+    END_FOR;
+    
+    // Calculate sum of distinct elements
+    FOR i FROM 0 TO count - 1 DO
+        sum_distinct_elements := sum_distinct_elements + distinct_elements[i];
+    END_FOR;
+    
+    WRITE("The sum of distinct elements is: ", sum_distinct_elements);
+END.
