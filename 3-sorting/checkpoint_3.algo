@@ -1,4 +1,4 @@
-PROCEDURE insertionsort(arr : ARRAY_OF INTEGER;)
+PROCEDURE insetion_sort(arr : ARRAY_OF INTEGER;)
 VAR
     i, j : INTEGER;
 BEGIN

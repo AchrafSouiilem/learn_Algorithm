@@ -1,0 +1,14 @@
+PROCEDURE Palindrome(left, right : INTEGER, word: STRING[10])
+
+BEGIN
+    IF (word.length = 0 OR left = right) THEN
+        write("word is palindrome")
+    ELSE
+        IF (word(left) = word(right)) THEN
+            Palindrome(left+1, right-1,word)
+        ELSE
+            write("it's not palindrome")
+        END_IF
+    END_IF
+END
+

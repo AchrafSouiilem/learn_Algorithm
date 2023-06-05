@@ -1,0 +1,121 @@
+//Problem_1
+
+ALGORITHM sum_distinct_elements
+
+VAR
+    set_1 : ARRAY_OF INTEGER[5];
+    set_2 : ARRAY_OF INTEGER[5];
+    i, j : INTEGER;
+    sum : INTEGER := 0;
+    found : BOOLEAN;
+BEGIN
+    read (set_1);
+    read (set_2);
+
+    FOR i FROM 0 TO set_1.length-1 STEP DO
+        found : FALSE;
+            FOR j FROM 0 TO set_2.length-1 STEP DO
+                IF (set_1[i] = set_2[j]) THEN
+                found : TRUE:
+                BREAK;
+            END_IF
+        END_FOR
+        IF (NOT found) THEN
+            sum := sum + set_1[i]
+        END_IF
+    END_FOR
+
+    FOR i FROM 0 TO set_2.length-1 STEP DO
+        found : FALSE;
+            FOR j FROM 0 TO set_1.length-1 STEP DO
+                IF (set_2[i] = set_1[j]) THEN
+                found : TRUE:
+                BREAK;
+            END_IF
+        END_FOR
+        IF (NOT found) THEN
+            sum := sum + set_2[i]
+        END_IF
+    END_FOR
+
+    write(sum)
+END
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+//Problem_2(with PROCEDURE)
+
+PROCEDURE dot_product(V1, V2 :ARRAY_OF FLOAT, VAR PS : FLOAT)
+VAR
+    i : INTEGER;
+BEGIN
+    PS := 0;
+    i := 0;
+    IF (V1.length <> V2.length) THEN
+        WRITE ("vertors with diffrent sizes")
+        ps := -1;
+    END_IF
+    WHILE (i < V1.length) DO
+        ps := ps + V1[i]*V2[i]; 
+    END_WHILE
+    WRITE(PS)
+END
+
+ALGORITHM orthogonal_vectors
+VAR
+    V1, V2 : ARRAY_OF FLOAT;
+    PS : FLOAT;
+    i, n : INTEGER;
+BEGIN
+    i := 0;
+    V1 :={1, 2, 3, 5, 7};
+    V2 :={5, 9, 7, 6, 3};
+
+    dot_product(V1, V2, PS);
+    
+    IF (PS = 0) THEN
+        write("V1 and V2 are orthogonal")
+    ELSE
+        write("V1 and V2 are not orthogonal")
+    END_IF
+END
+
+//Problem_2(with FUNCTION)
+
+FUNCTION dot_product(V1, V2 :ARRAY_OF FLOAT) : FLOAT
+VAR
+    i : INTEGER;
+    PS : FLOAT;
+BEGIN
+    PS := 0;
+    i := 0;
+
+    IF (V1.length <> V2.length) THEN
+        WRITE ("vertors with diffrent sizes")
+        ps := -1;
+    END_IF
+    WHILE (i < V1.length) DO
+        ps := ps + V1[i]*V2[i]; 
+    END_WHILE
+
+    RETURN PS ;
+END
+
+ALGORITHM orthogonal_vectors
+VAR
+    V1, V2 : ARRAY_OF FLOAT;
+    PS : FLOAT;
+    i, n : INTEGER;
+BEGIN
+    i := 0;
+    V1 :={1, 2, 3, 5, 7};
+    V2 :={5, 9, 7, 6, 3};
+
+    PS := dot_product(V1, V2);
+    
+    IF (PS = 0) THEN
+        write("V1 and V2 are orthogonal")
+    ELSE
+        write("V1 and V2 are not orthogonal")
+    END_IF
+END
